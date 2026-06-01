@@ -1,6 +1,7 @@
 package com.example.demo.common;
 
 import com.example.demo.service.AuthException;
+import com.example.demo.service.NotFoundException;
 import com.example.demo.service.ReportNotFoundException;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +23,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Void>> handleReportNotFound(ReportNotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ApiResponse.fail("REPORT_NOT_FOUND", e.getMessage()));
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNotFound(NotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ApiResponse.fail(e.getCode(), e.getMessage()));
     }
 }
