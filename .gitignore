@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# 환경변수/시크릿 (있을 경우)
+.env
