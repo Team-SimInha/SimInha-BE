@@ -1,0 +1,10 @@
+application-prod.ymlspring:
+     datasource:
+       url: jdbc:mysql:///${DB_NAME:siminha}?cloudSqlInstance=${CLOUD_SQL_INSTANCE}&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+       driver-class-name: com.mysql.cj.jdbc.Driver
+       username: ${DB_USER}
+       password: ${DB_PASS}
+     jpa:
+       properties:
+         hibernate:
+           dialect: org.hibernate.dialect.MySQLDialect
